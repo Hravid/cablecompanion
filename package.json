@@ -1,0 +1,13 @@
+{
+  "name": "cable-calculator",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "three": "^0.157.0"
+  }
+}
