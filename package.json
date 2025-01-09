@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "node server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "deploy": "az webapp up --name <your-app-name> --resource-group <your-resource-group> --plan <your-app-service-plan>"
   },
   "dependencies": {
     "express": "^4.18.2",
