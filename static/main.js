@@ -5,10 +5,9 @@ let cableGroup;
 function init() {
     // Scene setup
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / 2 / 500, 0.1, 1000);
     
     renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth / 2, 500);
+    renderer.setSize(window.innerWidth, 500);
     renderer.setClearColor(0xffffff);
     
     const container = document.getElementById('3d-view');
@@ -23,6 +22,7 @@ function init() {
     scene.add(directionalLight);
 
     // Camera position
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / 500, 0.1, 1000);
     camera.position.z = 50;
 
     // Add OrbitControls
@@ -39,6 +39,9 @@ function init() {
 
     // Initial render
     updateVisualization();
+
+    // Add resize event listener
+    window.addEventListener('resize', onWindowResize, false);
 }
 
 function animate() {
@@ -167,3 +170,9 @@ window.addEventListener('resize', () => {
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth / 2, 500);
 });
+
+function onWindowResize() {
+    camera.aspect = window.innerWidth / 500;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, 500);
+}
